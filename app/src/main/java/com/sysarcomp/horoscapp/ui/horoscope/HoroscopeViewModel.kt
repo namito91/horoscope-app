@@ -17,7 +17,7 @@ class HoroscopeViewModel @Inject constructor() : ViewModel() {
     // esta "val horoscope" se usa para acceder a los datos de _horoscope , pero sin poder modificarlos !
     val horoscope: StateFlow<List<HoroscopeInfo>> = _horoscope
 
-    // cuando se crea esta clase, se ejecuta primero este metodo
+    // cuando se crea esta clase, se ejecuta primero este metodo (viene de la clase ViewModel)
     init {
 
         _horoscope.value = listOf(
