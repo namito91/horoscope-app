@@ -10,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.sysarcomp.horoscapp.R
 import com.sysarcomp.horoscapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint // hace la clase inyectable
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
