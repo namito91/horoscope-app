@@ -1,0 +1,30 @@
+package com.sysarcomp.horoscapp.ui.luck
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.sysarcomp.horoscapp.R
+import com.sysarcomp.horoscapp.databinding.FragmentLuckBinding
+
+
+class LuckFragment : Fragment() {
+
+    private var _binding: FragmentLuckBinding? = null
+    private val binding get() = _binding!! // se accede a "_binding" , atraves de "binding"
+
+
+    override fun onCreateView(
+
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+
+    ): View {
+
+        _binding = FragmentLuckBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+
+}
