@@ -12,6 +12,14 @@ import com.sysarcomp.horoscapp.ui.horoscope.viewholder.HoroscopeViewHolder
 class HoroscopeAdapter(private var horoscopeList: List<HoroscopeInfo> = emptyList()) :
     RecyclerView.Adapter<HoroscopeViewHolder>() {
 
+    fun updateList(list: List<HoroscopeInfo>) {
+
+        horoscopeList = list
+
+        notifyDataSetChanged()
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
 
         return HoroscopeViewHolder(
