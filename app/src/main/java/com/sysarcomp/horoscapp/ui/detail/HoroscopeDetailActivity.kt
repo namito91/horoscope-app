@@ -17,6 +17,7 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHoroscopeDetailBinding
     private val horoscopeDetailViewModel: HoroscopeDetailViewModel by viewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

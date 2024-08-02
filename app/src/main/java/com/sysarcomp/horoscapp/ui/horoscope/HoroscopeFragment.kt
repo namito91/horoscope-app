@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sysarcomp.horoscapp.databinding.FragmentHoroscopeBinding
@@ -43,6 +44,7 @@ class HoroscopeFragment : Fragment() {
         initUIState()
     }
 
+    //SEGUIR CLASE EN 3:04 HS
 
     private fun initList() {
 
@@ -50,8 +52,15 @@ class HoroscopeFragment : Fragment() {
         // al hacer click en un item, se ejecuta el codigo de la lambda
         horoscopeAdapter = HoroscopeAdapter(onItemSelected = {
 
-            Toast.makeText(context, getString(it.name), Toast.LENGTH_LONG).show()
+            // cuando se haga click en el item , se debe navegar a la pantalla de details
+            findNavController().navigate(
+
+                // se representa el fragment del xml en esta clase (HoroscopeFragmentDirections) ,
+                // y hace la navegacion al activity ,usando el "id" del "action" del xml , (actionHoroscopeFragmentToHoroscopeDetailActivity)
+                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity()
+            )
         })
+
 
         binding.rvHoroscope.apply {
 
