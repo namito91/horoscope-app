@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
+import androidx.navigation.navArgs
 import com.sysarcomp.horoscapp.R
 import com.sysarcomp.horoscapp.databinding.ActivityHoroscopeDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,9 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHoroscopeDetailBinding
     private val horoscopeDetailViewModel: HoroscopeDetailViewModel by viewModels()
 
+    // recibimos la data desde el fragment y xml
+    private val args: HoroscopeDetailActivityArgs by navArgs()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -25,7 +29,7 @@ class HoroscopeDetailActivity : AppCompatActivity() {
         binding = ActivityHoroscopeDetailBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
-
+        
+        args.type
     }
 }

@@ -15,6 +15,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sysarcomp.horoscapp.databinding.FragmentHoroscopeBinding
+import com.sysarcomp.horoscapp.domain.model.HoroscopeInfo
+import com.sysarcomp.horoscapp.domain.model.HoroscopeModel
 import com.sysarcomp.horoscapp.ui.horoscope.adapter.HoroscopeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -44,7 +46,6 @@ class HoroscopeFragment : Fragment() {
         initUIState()
     }
 
-    //SEGUIR CLASE EN 3:04 HS
 
     private fun initList() {
 
@@ -52,12 +53,31 @@ class HoroscopeFragment : Fragment() {
         // al hacer click en un item, se ejecuta el codigo de la lambda
         horoscopeAdapter = HoroscopeAdapter(onItemSelected = {
 
+            val type = when (it) {
+                HoroscopeInfo.Aquarius -> HoroscopeModel.Aquarius
+                HoroscopeInfo.Aries -> HoroscopeModel.Aries
+                HoroscopeInfo.Cancer -> HoroscopeModel.Cancer
+                HoroscopeInfo.Capricorn -> HoroscopeModel.Capricorn
+                HoroscopeInfo.Gemini -> HoroscopeModel.Gemini
+                HoroscopeInfo.Leo -> HoroscopeModel.Leo
+                HoroscopeInfo.Libra -> HoroscopeModel.Libra
+                HoroscopeInfo.Pisces -> HoroscopeModel.Pisces
+                HoroscopeInfo.Sagittarius -> HoroscopeModel.Sagittarius
+                HoroscopeInfo.Scorpio -> HoroscopeModel.Scorpio
+                HoroscopeInfo.Taurus -> HoroscopeModel.Taurus
+                HoroscopeInfo.Virgo -> HoroscopeModel.Virgo
+            }
+
+            // debo pasarle el tipo de dato a esta funcion , gracias a navigation args, es mas sencillo
+            // el argumento se configura en el xml main_graph
+            // HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity()
+
             // cuando se haga click en el item , se debe navegar a la pantalla de details
             findNavController().navigate(
 
                 // se representa el fragment del xml en esta clase (HoroscopeFragmentDirections) ,
                 // y hace la navegacion al activity ,usando el "id" del "action" del xml , (actionHoroscopeFragmentToHoroscopeDetailActivity)
-                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity()
+                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity(type)
             )
         })
 
